@@ -1,6 +1,8 @@
 #!/bin/bash
 
-for i in {1..5}
+# cd notes/
+
+for i in {6..10}
 do 
     touch $i-chapter.md
 done
