@@ -2,7 +2,7 @@
 
 # cd notes/
 
-for i in {6..10}
+for i in {8..12}
 do 
     touch $i-chapter.md
 done
