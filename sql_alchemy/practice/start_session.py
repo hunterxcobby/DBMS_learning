@@ -46,3 +46,8 @@ session = Session()
 # print(session.dirty)
 # print(session.new)
 
+"""Querying"""
+
+"""basic query"""
+for instance in session.query(User).order_by(User.id):
+    print(instance.name, ": ", instance.fullname, " - ", instance.age, "years")
