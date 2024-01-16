@@ -56,8 +56,10 @@ session = Session()
 # for name, fullname in session.query(User.name, User.fullname).order_by(User.name):
 #     print(name, "full name is ", fullname)
 
-"""Querying as Named Tuples:"""
-for row in session.query(User, User.name).all():
-    print(row.User, row.name)
+# """Querying as Named Tuples:"""
+# for row in session.query(User, User.name).all():
+#     print(row.User, row.name)
 
 """Controlled Naming with label():"""
+for row in session.query(User.name.label('name_label')).all():
+    print(row.name_label)
