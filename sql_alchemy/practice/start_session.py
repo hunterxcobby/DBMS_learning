@@ -72,3 +72,6 @@ session = Session()
 #     print(row.user_alias)
 
 
+""" Limiting and Offsetting Results:"""
+for u in session.query(User).order_by(User.id)[1:3]:
+    print(u)
