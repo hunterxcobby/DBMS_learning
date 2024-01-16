@@ -77,8 +77,14 @@ session = Session()
 #     print(u)
 
 """ Filtering Results:"""
-for name, in session.query(User.name).filter_by(fullname='Sandy Afeawo'):
-    print(name)
+# for name, in session.query(User.name).filter_by(fullname='Sandy Afeawo'):
+#     print(name)
 
-for name, in session.query(User.name).filter(User.fullname == 'Kelvin Asare Bosompem'):
-    print(name)
+# for name, in session.query(User.name).filter(User.fullname == 'Kelvin Asare Bosompem'):
+#     print(name)
+
+query = session.query(User)
+
+"""Equal (==) Operator:"""
+result = query.filter(User.name == 'Sandy').all()
+print(result)
