@@ -47,26 +47,28 @@ session = Session()
 # print(session.dirty)
 # print(session.new)
 
-# """Querying"""
+"""Querying"""
 
-# """basic query"""
+"""basic query"""
 # for instance in session.query(User).order_by(User.id):
 #     print(instance.name, ": ", instance.fullname, " - ", instance.age, "years")
 
-# """column query"""
+"""column query"""
 # for name, fullname in session.query(User.name, User.fullname).order_by(User.name):
 #     print(name, "full name is ", fullname)
 
-# """Querying as Named Tuples:"""
+"""Querying as Named Tuples:"""
 # for row in session.query(User, User.name).all():
 #     print(row.User, row.name)
 
-# """Controlled Naming with label():"""
+"""Controlled Naming with label():"""
 # for row in session.query(User.name.label('name_label')).all():
 #     print(row.name_label)
 
 
 """Aliasing Entities with aliased():"""
-user_alias = aliased(User, name='user_alias')
-for row in session.query(user_alias, user_alias.name).all():
-    print(row.user_alias)
+# user_alias = aliased(User, name='user_alias')
+# for row in session.query(user_alias, user_alias.name).all():
+#     print(row.user_alias)
+
+
