@@ -88,3 +88,9 @@ query = session.query(User)
 """Equal (==) Operator:"""
 result = query.filter(User.name == 'Sandy').all()
 print(result)
+
+""" Not Equal (!=) Operator:"""
+result = query.filter(User.name != "Sandy").all()
+print(result)
+
+""""""
