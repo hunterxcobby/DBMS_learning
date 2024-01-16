@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, and_
 from sqlalchemy.orm import sessionmaker
 from create_schema import User
 from create_schema import engine
@@ -134,10 +134,25 @@ query = session.query(User)
 # print(result)
 
 """Is Not Operator:"""
-result = query.filter(User.name != None).all()
+# result = query.filter(User.name != None).all()
+# print(result)
+
+# # alternatively, if pep8/linters are a concern
+# query.filter(User.name.isnot(None)).all()
+# print(result)
+
+
+"""AND Operator:
+Use and_() or chain multiple filter conditions."""
+
+# Using and_()
+result = query.filter(and_(User.name == 'Kelvin', User.fullname == 'Kelvin Asare Bosompem')).all()
+print(result)
+# Using multiple filter conditions
+result = query.filter(User.name == 'ed', User.fullname == 'Ed Jones').all()
 print(result)
 
-# alternatively, if pep8/linters are a concern
-query.filter(User.name.isnot(None)).all()
+# Chaining
+result = query.filter(User.name == 'ed').filter(User.fullname == 'Ed Jones').all()
 print(result)
 
