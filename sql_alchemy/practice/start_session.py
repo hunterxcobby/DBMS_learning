@@ -157,7 +157,8 @@ Use and_() or chain multiple filter conditions."""
 # print(result)
 
 
-""""""
+"""OR Operator:
+Use or_() for OR conditions."""
 result = query.filter(or_(User.name == 'Sandy', User.name == 'Rosemond')).all()
 print(result)
 
