@@ -10,23 +10,39 @@ Session.configure(bind=engine)  # once engine is available
 # Instantiate a Session object
 session = Session()
 
-ed_user = User(name="Sandy", fullname="Sandy Afeawo", nickname="curdy jasoer", age=21)
-session.add(ed_user)
+# ed_user = User(name="Sandy", fullname="Sandy Afeawo", nickname="curdy jasoer", age=21)
+# session.add(ed_user)
 
 # session.add_all([
-#     User(name= "Kelvin", age=21, nickname ="namor the rapper", fullname = "Kelvin Asare Bosompem"),
-#     User(name= "Rosemond", age=19 , nickname ="BLinkzy BLinkz", fullname = "Rosemond Ameley Okai"),
-#     User(name= "Precious", age=33 , nickname = "Hey Oboshi", fullname = "Precious Dzifah Krah"),
-#     User(name= "Nasia", age= 120, nickname = "Madam wo p3 sere3", fullname = "Nasia Korkor Offei Tetteh")
+#     User(name= "Kelvin", age=21, nickname ="Chronicles", fullname = "Kelvin Asare Bosompem"),
+#     User(name= "Rosemond", age=19 , nickname ="Ameley", fullname = "Rosemond Ameley Okai"),
+#     User(name= "Precious", age=33 , nickname = "Dzifah", fullname = "Precious Dzifah Krah"),
+#     User(name= "Nasia", age= 120, nickname = "Nasia", fullname = "Nasia Korkor Offei Tetteh"),
+#     User(name= "Julie", age=21, nickname ="Julie", fullname = "Juliana Gati")
 # ])
 
-def __repr__(self):
-    return f"<User(id={self.id}, name='{self.name}', fullname='{self.fullname}', nickname='{self.nickname}')>"
+# def __repr__(self):
+#     return f"<User(id={self.id}, name='{self.name}', fullname='{self.fullname}', nickname='{self.nickname}')>"
 
-our_user = session.query(User).filter_by(name='cobby').first()
-print(our_user)
+# our_user = session.query(User).filter_by(name='Nasia').first()
+# our_user.age = 22
 
-session.commit()
+# if our_user:
+#     print(f"User found: {our_user}")
+# else:
+#     print("User not found.")
 
-print(session.dirty)
-print(session.new)
+"""ROLL BACK """
+# our_user = session.query(User).filter_by(name='Sandy').first()
+# our_user.name = 'Sandra'
+# fake_user = User(name='fakeuser', fullname='Invalid', nickname='12345')
+# session.add(fake_user)
+
+# session.query(User).filter(User.name.in_(['Sandra', 'fakeuser'])).all()
+
+# session.rollback()
+# session.commit()
+
+# print(session.dirty)
+# print(session.new)
+
