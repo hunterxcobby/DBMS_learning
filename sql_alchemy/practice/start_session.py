@@ -73,5 +73,12 @@ session = Session()
 
 
 """ Limiting and Offsetting Results:"""
-for u in session.query(User).order_by(User.id)[1:3]:
-    print(u)
+# for u in session.query(User).order_by(User.id)[1:3]:
+#     print(u)
+
+""" Filtering Results:"""
+for name, in session.query(User.name).filter_by(fullname='Sandy Afeawo'):
+    print(name)
+
+for name, in session.query(User.name).filter(User.fullname == 'Kelvin Asare Bosompem'):
+    print(name)
