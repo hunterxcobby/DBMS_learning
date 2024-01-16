@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from create_schema import User
 from create_schema import engine
+from sqlalchemy.orm import aliased
 
 Session = sessionmaker()
 Session.configure(bind=engine)  # once engine is available
@@ -60,6 +61,12 @@ session = Session()
 # for row in session.query(User, User.name).all():
 #     print(row.User, row.name)
 
-"""Controlled Naming with label():"""
-for row in session.query(User.name.label('name_label')).all():
-    print(row.name_label)
+# """Controlled Naming with label():"""
+# for row in session.query(User.name.label('name_label')).all():
+#     print(row.name_label)
+
+
+"""Aliasing Entities with aliased():"""
+user_alias = aliased(User, name='user_alias')
+for row in session.query(user_alias, user_alias.name).all():
+    print(row.user_alias)
