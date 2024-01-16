@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine, and_
+from sqlalchemy import create_engine, and_, or_
 from sqlalchemy.orm import sessionmaker
 from create_schema import User
 from create_schema import engine
@@ -145,14 +145,19 @@ query = session.query(User)
 """AND Operator:
 Use and_() or chain multiple filter conditions."""
 
-# Using and_()
-result = query.filter(and_(User.name == 'Kelvin', User.fullname == 'Kelvin Asare Bosompem')).all()
-print(result)
-# Using multiple filter conditions
-result = query.filter(User.name == 'ed', User.fullname == 'Ed Jones').all()
-print(result)
+# # Using and_()
+# result = query.filter(and_(User.name == 'Kelvin', User.fullname == 'Kelvin Asare Bosompem')).all()
+# print(result)
+# # Using multiple filter conditions
+# result = query.filter(User.name == 'ed', User.fullname == 'Ed Jones').all()
+# print(result)
 
-# Chaining
-result = query.filter(User.name == 'ed').filter(User.fullname == 'Ed Jones').all()
+# # Chaining
+# result = query.filter(User.name == 'ed').filter(User.fullname == 'Ed Jones').all()
+# print(result)
+
+
+""""""
+result = query.filter(or_(User.name == 'Sandy', User.name == 'Rosemond')).all()
 print(result)
 
