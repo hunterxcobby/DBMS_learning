@@ -46,14 +46,18 @@ session = Session()
 # print(session.dirty)
 # print(session.new)
 
-"""Querying"""
+# """Querying"""
 
-"""basic query"""
-for instance in session.query(User).order_by(User.id):
-    print(instance.name, ": ", instance.fullname, " - ", instance.age, "years")
+# """basic query"""
+# for instance in session.query(User).order_by(User.id):
+#     print(instance.name, ": ", instance.fullname, " - ", instance.age, "years")
 
-"""column query"""
-for name, fullname in session.query(User.name, User.fullname).order_by(User.name):
-    print(name, "full name is ", fullname)
+# """column query"""
+# for name, fullname in session.query(User.name, User.fullname).order_by(User.name):
+#     print(name, "full name is ", fullname)
 
 """Querying as Named Tuples:"""
+for row in session.query(User, User.name).all():
+    print(row.User, row.name)
+
+"""Controlled Naming with label():"""
