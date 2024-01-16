@@ -94,5 +94,9 @@ query = session.query(User)
 # print(result)
 
 """ Like Operator:"""
-result = query.filter(User.name.like('%ia%')).all()
+# result = query.filter(User.name.like('%ia%')).all()
+# print(result)
+
+"""Case-Insensitive Like Operator (ilike):"""
+result= query.filter(User.name.ilike('%sa%')).all()
 print(result)
