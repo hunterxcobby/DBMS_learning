@@ -2,7 +2,7 @@
 
 # connect to a database
 from sqlalchemy import create_engine
-engine = create_engine('mysql://cobby:cobby3136@localhost/practice', echo=False)
+engine = create_engine('mysql://cobby:cobby3136@localhost/friends', echo=False)
 
 # declare mapping
 from sqlalchemy.ext.declarative import declarative_base #import declarative base
@@ -20,9 +20,9 @@ class User(Base):
     nickname = Column(String(50))
     age = Column(Integer)
 
-    def __rep__(self):
-         return "<User(name='%s', fullname='%s', nickname='%s')>" % (
-            self.name, self.fullname, self.nickname)
+    def __repr__(self):
+         return "\nUser : %d \n name : %s \n fullname : %s \n nickname : %s \n age : %d" % (
+            self.id, self.name, self.fullname, self.nickname, self.age)
     
 Base.metadata.create_all(engine)
     
