@@ -51,3 +51,8 @@ session = Session()
 """basic query"""
 for instance in session.query(User).order_by(User.id):
     print(instance.name, ": ", instance.fullname, " - ", instance.age, "years")
+
+"""column query"""
+for name, fullname in session.query(User.name, User.fullname):
+    print(name, "full name is ", fullname)
+
