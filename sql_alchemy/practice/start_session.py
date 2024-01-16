@@ -124,8 +124,8 @@ query = session.query(User)
 # result = query.filter(~User.name.in_(['Ed', 'Sandy', 'Kelvin'])).all()
 # print(result)
 
-""" Is Not Operator:
-# Filter users with a non-None name."""
+""" Is Operator:
+# Filter users with a name."""
 # result = query.filter(User.name == None).all()
 # print(result)
 
