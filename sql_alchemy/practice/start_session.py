@@ -120,6 +120,15 @@ query = session.query(User)
 # for user in result:
 #     print(f"Name: {user.name}, Nickname: {user.nickname}")
 
-"""Not In Operator:"""
-result = query.filter(~User.name.in_(['Ed', 'Sandy', 'Kelvin'])).all()
-print(result)
+# """Not In Operator:"""
+# result = query.filter(~User.name.in_(['Ed', 'Sandy', 'Kelvin'])).all()
+# print(result)
+
+""" Is Not Operator:
+# Filter users with a non-None name."""
+# result = query.filter(User.name == None).all()
+# print(result)
+
+# # alternatively, if pep8/linters are a concern
+# result = query.filter(User.name.is_(None)).all()
+# print(result)
