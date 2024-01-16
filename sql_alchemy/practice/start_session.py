@@ -86,11 +86,13 @@ session = Session()
 query = session.query(User)
 
 """Equal (==) Operator:"""
-result = query.filter(User.name == 'Sandy').all()
-print(result)
+# result = query.filter(User.name == 'Sandy').all()
+# print(result)
 
 """ Not Equal (!=) Operator:"""
-result = query.filter(User.name != "Sandy").all()
-print(result)
+# result = query.filter(User.name != "Sandy").all()
+# print(result)
 
-""""""
+""" Like Operator:"""
+result = query.filter(User.name.like('%ia%')).all()
+print(result)
