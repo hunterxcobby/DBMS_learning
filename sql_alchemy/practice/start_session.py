@@ -132,3 +132,12 @@ query = session.query(User)
 # # alternatively, if pep8/linters are a concern
 # result = query.filter(User.name.is_(None)).all()
 # print(result)
+
+"""Is Not Operator:"""
+result = query.filter(User.name != None).all()
+print(result)
+
+# alternatively, if pep8/linters are a concern
+query.filter(User.name.isnot(None)).all()
+print(result)
+
