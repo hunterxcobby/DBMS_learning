@@ -102,20 +102,24 @@ query = session.query(User)
 # print(result)
 
 """In Operator:"""
-query.filter(User.name.in_(['kelvin', 'julie', 'nasia']))
+# query.filter(User.name.in_(['kelvin', 'julie', 'nasia']))
 
-# works with query objects too:
-query.filter(User.name.in_(
-    session.query(User.name).filter(User.name.ilike('%sa%'))
-))
+# # works with query objects too:
+# query.filter(User.name.in_(
+#     session.query(User.name).filter(User.name.ilike('%sa%'))
+# ))
 
-# use tuple_() for composite (multi-column) queries
-from sqlalchemy import tuple_
-result = query.filter(
-    tuple_(User.name, User.nickname).\
-    in_([('sandy', 'curdy jasper'), ('Nasia', 'Nasia')])
-)
+# # use tuple_() for composite (multi-column) queries
+# from sqlalchemy import tuple_
+# result = query.filter(
+#     tuple_(User.name, User.nickname).\
+#     in_([('sandy', 'curdy jasper'), ('Nasia', 'Nasia')])
+# )
 
-# Iterating over the result and printing relevant attributes
-for user in result:
-    print(f"Name: {user.name}, Nickname: {user.nickname}")
+# # Iterating over the result and printing relevant attributes
+# for user in result:
+#     print(f"Name: {user.name}, Nickname: {user.nickname}")
+
+"""Not In Operator:"""
+result = query.filter(~User.name.in_(['Ed', 'Sandy', 'Kelvin'])).all()
+print(result)
